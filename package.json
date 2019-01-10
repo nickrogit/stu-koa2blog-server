@@ -1,5 +1,5 @@
 {
-  "name": "cykspace-node",
+  "name": "koa2blog-node",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",

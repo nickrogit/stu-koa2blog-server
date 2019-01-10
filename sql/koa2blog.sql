@@ -6,7 +6,7 @@
 # https://github.com/sequelpro/sequelpro
 #
 # Host: (MySQL 5.6.33)
-# Database: cykspace
+# Database: koa2blog
 # Generation Time: 2018-05-16 12:45:53 +0000
 # ************************************************************
 

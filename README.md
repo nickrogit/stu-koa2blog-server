@@ -1,7 +1,5 @@
 # koa+mysql后台
 
-一直以来都想用自己的技术做一些个人项目, 之前的[博客](https://chenyinkai.github.io/)是基于 `hexo` 搭建, 感觉啥都是别人帮你写好了, 于是便决定自己搞一个, 断断续续地弄了一段时间, 也总算是完成了个简单版本并部署上线.
-
 [博客线上地址](http://www.cykspace.com)
 
 博客地址：[cykspace](https://github.com/chenyinkai/cykspace)
@@ -12,14 +10,16 @@
 
 > 由于不会设计, 博客主题是模仿 [hexo-theme-next](https://github.com/iissnan/hexo-theme-next) 的布局样式, 感谢作者的开源分享.
 
-> 数据库安装及关联：https://blog.csdn.net/nickroprak/article/details/85338871
-> 进入安装目录：cd C:\mysql\mysql-8.0.13\bin
-> 初始化数据库：mysqld --initialize --console （初始密码:root@localhost: APWCY5ws&hjQ）
-> 数据库安装：mysqld install
-> 数据库启动：net start mysql
-> 数据库登录：mysql -u root -p
-> 数据库退出：exit 或 quit （mysq>）
-> 数据库停止：net stop mysql
+## 数据库相关
+
++ 数据库安装及关联：https://blog.csdn.net/nickroprak/article/details/85338871
++ 进入安装目录：cd C:\mysql\mysql-8.0.13\bin
++ 初始化数据库：mysqld --initialize --console （初始密码:root@localhost: APWCY5ws&hjQ）
++ 数据库安装：mysqld install
++ 数据库启动：net start mysql
++ 数据库登录：mysql -u root -p
++ 数据库退出：exit 或 quit （mysq>）
++ 数据库停止：net stop mysql
 
 ## 相关技术栈
 
@@ -41,7 +41,7 @@
 > clone
 
 ```bash
-git clone https://gitee.com/nickro/koa-mysql-blog.git
+git clone https://github.com/nickrogit/stu-koa2blog-server
 ```
 
 > install

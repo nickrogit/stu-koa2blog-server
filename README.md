@@ -37,7 +37,7 @@ git clone https://github.com/nickrogit/stu-koa2blog-server
 > install
 
 ```bash
-cd koa-mysql-blog
+cd stu-koa2blog-server
 
 npm install
 ```

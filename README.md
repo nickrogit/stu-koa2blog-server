@@ -1,14 +1,11 @@
 # koa+mysql后台
 
-[博客线上地址](http://www.cykspace.com)
-
-博客地址：[cykspace](https://github.com/chenyinkai/cykspace)
-
-博客后台：[cykspace-node](https://github.com/chenyinkai/cykspace-node)
-
-如果觉得还行的话, 欢迎给个 `star` 哈. 感谢～～
-
+> 原作者[博客线上地址](http://www.cykspace.com)
+> 博客地址：[cykspace](https://github.com/chenyinkai/cykspace)
+> 博客后台：[cykspace-node](https://github.com/chenyinkai/cykspace-node)
+> 如果觉得还行的话, 欢迎给个 `star` 哈. 感谢～～
 > 由于不会设计, 博客主题是模仿 [hexo-theme-next](https://github.com/iissnan/hexo-theme-next) 的布局样式, 感谢作者的开源分享.
+
 
 ## 数据库相关
 

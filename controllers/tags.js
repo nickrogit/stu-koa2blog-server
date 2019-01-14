@@ -26,7 +26,7 @@ const getTags = async ctx => {
       .then(data => {
         ctx.body = {
           msg: '标签查询成功',
-          status: 200,
+          code: 200,
           tagId: data[0].dataValues.tagId,
           tagName: data[0].dataValues.tag,
           articles: tagArticle
@@ -35,7 +35,7 @@ const getTags = async ctx => {
       .catch(err => {
         ctx.body = {
           msg: err,
-          status: 999999
+          code: 999999
         }
       })
   } else {
@@ -52,7 +52,7 @@ const getTags = async ctx => {
       .catch(err => {
         ctx.body = {
           msg: err,
-          status: 999999
+          code: 999999
         }
       })
     for (let i = 0; i < tagIdList.length; i++) {
@@ -62,7 +62,7 @@ const getTags = async ctx => {
     }
     ctx.body = {
       msg: '标签列表查询成功',
-      status: 200,
+      code: 200,
       tagsList: tagList
     }
   }

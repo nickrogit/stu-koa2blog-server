@@ -45,7 +45,7 @@ npm install
 > start
 
 ```bash
-npm start # 打开 http://localhost:3000/v1/articles
+npm start # 打开 http://localhost:3000/articles
 ```
 
 注意：

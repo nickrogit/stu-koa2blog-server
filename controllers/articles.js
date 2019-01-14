@@ -13,6 +13,7 @@ const getArticles = async ctx => {
   await articles.findAll().then(data => {
     total = data.length
   })
+  // 查所有数据 待优化查询条件
   await articles
     .findAll({
       attributes: [
@@ -38,14 +39,14 @@ const getArticles = async ctx => {
           .slice(pageSize * (pageNum - 1), pageSize + pageSize * (pageNum - 1))
         ctx.body = {
           msg: '查询成功',
-          status: 200,
+          code: 200,
           total: Math.ceil(total / pageSize),
           pageNum: pageNum,
           pageSize: pageSize,
-          datalist: list
+          data: list
         }
       } else {
-        // 整理返参格式
+        // 无分页 整理返参格式 按年分类
         list = data.reverse()
         let yearList = []
         let result = []
@@ -67,16 +68,77 @@ const getArticles = async ctx => {
         }
         ctx.body = {
           msg: '查询成功',
-          status: 200,
+          code: 200,
           total: list.length,
-          datalist: result
+          data: result
         }
       }
     })
     .catch(err => {
       ctx.body = {
         msg: err,
-        status: 999999
+        code: 999999
+      }
+    })
+}
+
+/**
+ * 通过文章ID查询文章详情
+ *
+ * @param  {postId} 文章Id
+ * @return {JSONArray} 返回文章信息
+ */
+const getArticlesDetail = async ctx => {
+  const postId = ctx.request.query.postId
+  await articles
+    .findAll({
+      where: {
+        postId: postId
+      }
+    })
+    .then(data => {
+      ctx.body = {
+        msg: '文章详情查询成功',
+        code: 200,
+        data: data[0].dataValues
+      }
+
+      // data[0].dataValues.msg = '文章详情查询成功'
+      // data[0].dataValues.code = 200
+      // ctx.body = data[0].dataValues
+    })
+    .catch(err => {
+      ctx.body = {
+        msg: err,
+        code: 999999
+      }
+    })
+}
+
+/**
+ * 通过文章ID删除文章详情
+ *
+ * @param  {postId} 文章Id
+ * @return {JSONArray} 返回文章信息
+ */
+const getArticlesDel = async ctx => {
+  const postId = ctx.request.body.postId
+  await articles
+    .destroy({
+      where: {
+        postId: postId
+      }
+    })
+    .then(data => {
+      ctx.body = {
+        msg: '文章删除成功',
+        code: 200
+      }
+    })
+    .catch(err => {
+      ctx.body = {
+        msg: err,
+        code: 999999
       }
     })
 }
@@ -103,33 +165,6 @@ const getDetails = async postId => {
 }
 
 /**
- * 通过文章ID查询文章详情
- *
- * @param  {postId} 文章Id
- * @return {JSONArray} 返回文章信息
- */
-const getDetail = async ctx => {
-  const postId = ctx.request.query.postId
-  await articles
-    .findAll({
-      where: {
-        postId: postId
-      }
-    })
-    .then(data => {
-      data[0].dataValues.msg = '文章详情查询成功'
-      data[0].dataValues.status = 200
-      ctx.body = data[0].dataValues
-    })
-    .catch(err => {
-      ctx.body = {
-        msg: err,
-        status: 999999
-      }
-    })
-}
-
-/**
  * 阅读次数递增接口
  * POST
  * @param  {postId} 文章Id
@@ -146,7 +181,7 @@ const readNumIncrease = async ctx => {
   }).catch(err => {
     ctx.body = {
       msg: err,
-      status: 999999
+      code: 999999
     }
   })
   await articles
@@ -159,21 +194,22 @@ const readNumIncrease = async ctx => {
     .then(data => {
       ctx.body = {
         msg: '阅读次数查询成功',
-        status: 200,
+        code: 200,
         postId: postId,
         readCount: data[0].dataValues.readNum
       }
     }).catch(err => {
       ctx.body = {
         msg: err,
-        status: 999999
+        code: 999999
       }
     })
 }
 
 module.exports = {
   getArticles,
+  getArticlesDetail,
+  getArticlesDel,
   getDetails,
-  getDetail,
   readNumIncrease
 }

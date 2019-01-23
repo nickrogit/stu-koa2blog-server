@@ -17,7 +17,8 @@ const getArticles = async ctx => {
   await articles
     .findAll({
       attributes: [
-        'postId',
+        'id',
+        'id',
         'date',
         'tags',
         'title',
@@ -40,7 +41,7 @@ const getArticles = async ctx => {
         ctx.body = {
           msg: '查询成功',
           code: 200,
-          total: Math.ceil(total / pageSize),
+          total: total, // Math.ceil(total / pageSize)
           pageNum: pageNum,
           pageSize: pageSize,
           data: list
@@ -85,15 +86,15 @@ const getArticles = async ctx => {
 /**
  * 通过文章ID查询文章详情
  *
- * @param  {postId} 文章Id
+ * @param  {id} 文章Id
  * @return {JSONArray} 返回文章信息
  */
 const getArticlesDetail = async ctx => {
-  const postId = ctx.request.query.postId
+  const id = ctx.request.query.id
   await articles
     .findAll({
       where: {
-        postId: postId
+        id: id
       }
     })
     .then(data => {
@@ -102,10 +103,6 @@ const getArticlesDetail = async ctx => {
         code: 200,
         data: data[0].dataValues
       }
-
-      // data[0].dataValues.msg = '文章详情查询成功'
-      // data[0].dataValues.code = 200
-      // ctx.body = data[0].dataValues
     })
     .catch(err => {
       ctx.body = {
@@ -116,17 +113,68 @@ const getArticlesDetail = async ctx => {
 }
 
 /**
+ * 阅读次数递增接口
+ * POST
+ * @param  {id} 文章Id
+ * @return {JSON} Id, 阅读次数
+ */
+const getArticlesUpdate = async ctx => {
+  const id = ctx.request.body.id
+  if (id) {
+    await articles.update({
+      title: ctx.request.body.title || '',
+      date: ctx.request.body.date || '',
+      tags: ctx.request.body.tags || '',
+      desc: ctx.request.body.desc || '',
+      detail: ctx.request.body.detail || ''
+    }, {
+      where: {
+        id: id
+      }
+    }).then(data => {
+      ctx.body = {
+        msg: '提交成功',
+        code: 200
+      }
+    }).catch(err => {
+      ctx.body = {
+        msg: err,
+        code: 999999
+      }
+    })
+  } else {
+    await articles.create({
+      title: ctx.request.body.title || '',
+      date: ctx.request.body.date || '',
+      tags: ctx.request.body.tags || '',
+      desc: ctx.request.body.desc || '',
+      detail: ctx.request.body.detail || ''
+    }).then(data => {
+      ctx.body = {
+        msg: '提交成功',
+        code: 200
+      }
+    }).catch(err => {
+      ctx.body = {
+        msg: err,
+        code: 999999
+      }
+    })
+  }
+}
+
+/**
  * 通过文章ID删除文章详情
  *
- * @param  {postId} 文章Id
+ * @param  {id} 文章Id
  * @return {JSONArray} 返回文章信息
  */
 const getArticlesDel = async ctx => {
-  const postId = ctx.request.body.postId
+  const id = ctx.request.body.id
   await articles
     .destroy({
       where: {
-        postId: postId
+        id: id
       }
     })
     .then(data => {
@@ -144,39 +192,18 @@ const getArticlesDel = async ctx => {
 }
 
 /**
- * 通过文章ID查询文章(供标签接口使用)
- *
- * @param  {postId} 文章Id
- * @return {JSONArray} 返回文章信息
- */
-const getDetails = async postId => {
-  let result = []
-  await articles
-    .findAll({
-      where: {
-        postId: postId
-      },
-      attributes: ['postId', 'date', 'title']
-    })
-    .then(data => {
-      result.push(data[0].dataValues)
-    })
-  return result
-}
-
-/**
  * 阅读次数递增接口
  * POST
- * @param  {postId} 文章Id
+ * @param  {id} 文章Id
  * @return {JSON} Id, 阅读次数
  */
 const readNumIncrease = async ctx => {
-  const postId = ctx.request.body.postId
+  const id = ctx.request.body.id
   await articles.update({
     readNum: Sequelize.literal('readNum + 1')
   }, {
     where: {
-      postId: postId
+      id: id
     }
   }).catch(err => {
     ctx.body = {
@@ -187,7 +214,7 @@ const readNumIncrease = async ctx => {
   await articles
     .findAll({
       where: {
-        postId: postId
+        id: id
       },
       attributes: ['readNum']
     })
@@ -195,7 +222,7 @@ const readNumIncrease = async ctx => {
       ctx.body = {
         msg: '阅读次数查询成功',
         code: 200,
-        postId: postId,
+        id: id,
         readCount: data[0].dataValues.readNum
       }
     }).catch(err => {
@@ -207,9 +234,9 @@ const readNumIncrease = async ctx => {
 }
 
 module.exports = {
+  getArticlesUpdate,
   getArticles,
   getArticlesDetail,
   getArticlesDel,
-  getDetails,
   readNumIncrease
 }

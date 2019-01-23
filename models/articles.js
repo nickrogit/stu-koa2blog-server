@@ -7,7 +7,7 @@ const articles = sequelize.define(
       type: Sequelize.STRING(11),
       primaryKey: true
     },
-    postId: Sequelize.STRING(11),
+    // postId: Sequelize.STRING(11),
     date: Sequelize.BIGINT(100),
     tags: Sequelize.STRING(500),
     title: Sequelize.STRING(100),

@@ -4,8 +4,9 @@ const articlesApi = require('../controllers/articles')
 
 router.get('/articles', articlesApi.getArticles)
 router.get('/articlesDetail', articlesApi.getArticlesDetail)
-router.get('/articlesDel', articlesApi.getArticlesDel)
-router.post('/v1/readNum', articlesApi.readNumIncrease)
-router.get('/v1/tags', tagsApi.getTags)
+router.post('/articlesDel', articlesApi.getArticlesDel)
+router.post('/articlesUpdate', articlesApi.getArticlesUpdate)
+router.get('/tags', tagsApi.getTags)
+router.post('/readNum', articlesApi.readNumIncrease)
 
 module.exports = router

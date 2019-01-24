@@ -4,8 +4,8 @@
 
 > 参考
 
-> 博客地址：[cykspace](https://github.com/chenyinkai/cykspace)
-> 博客后台：[cykspace-node](https://github.com/chenyinkai/cykspace-node)
+> [koa2-note](https://chenshenhai.github.io/koa2-note/)
+> [cykspace-node](https://github.com/chenyinkai/cykspace-node)
 
 # 说明/补充/优化
 服务数据库端：https://github.com/nickrogit/stu-koa2blog-server (koa2 + mysql)

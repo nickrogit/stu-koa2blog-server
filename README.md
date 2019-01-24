@@ -1,11 +1,11 @@
 # koa2+mysql后台
 
-注：此博客项目为koa2+mysql开源项目学习,笔记记录及补充完善。参考地址如下，欢迎大家学习，感谢作者的开源分享！
+注：此博客项目为koa2+mysql开源项目学习,笔记记录及补充完善。参考地址如下，欢迎大家去学习，感谢作者的开源分享！
 
 > 参考
 
-> [koa2-note](https://chenshenhai.github.io/koa2-note/)
-> [cykspace-node](https://github.com/chenyinkai/cykspace-node)
+> 笔记：[koa2-note](https://chenshenhai.github.io/koa2-note/)
+> 开源项目：[cykspace-node](https://github.com/chenyinkai/cykspace-node)
 
 # 说明/补充/优化
 服务数据库端：https://github.com/nickrogit/stu-koa2blog-server (koa2 + mysql)

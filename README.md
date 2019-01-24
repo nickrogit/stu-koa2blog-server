@@ -8,6 +8,8 @@
 > 开源项目：[cykspace-node](https://github.com/chenyinkai/cykspace-node)
 
 # 说明/补充/优化
+服务端+后台端+C端
+
 服务数据库端：https://github.com/nickrogit/stu-koa2blog-server (koa2 + mysql)
 
 后台管理端：https://github.com/nickrogit/stu-koa2blog-client (vue + iview)

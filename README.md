@@ -1,12 +1,26 @@
 # koa2+mysql后台
 
-注：此项目为koa2+mysql开源项目学习，笔记记录及补充完善。原项目地址如下，欢迎大家去原项目学习，感谢作者的开源分享！
+注：此博客项目为koa2+mysql开源项目学习,笔记记录及补充完善。参考地址如下，欢迎大家学习，感谢作者的开源分享！
 
 > 原作者[博客线上地址](http://www.cykspace.com)
 > 博客地址：[cykspace](https://github.com/chenyinkai/cykspace)
 > 博客后台：[cykspace-node](https://github.com/chenyinkai/cykspace-node)
-> 如果觉得还行的话, 欢迎给个 `star` 哈. 感谢～～
-> 由于不会设计, 博客主题是模仿 [hexo-theme-next](https://github.com/iissnan/hexo-theme-next) 的布局样式, 感谢作者的开源分享.
+
+# 说明/补充/优化
+服务数据库端：https://github.com/nickrogit/stu-koa2blog-server (koa2 + mysql)
+后台管理端：https://github.com/nickrogit/stu-koa2blog-client (vue + iview)
+多平台C端：计划中，将采用多端开发框架，uniapp或taro
+## 现功能
++ 登录
++ 注册
++ 文章列表
++ 文章增、删、改、查
++ 图片上传
+## 后续补充功能
++ 用户token机制
++ 富文本
++ 文章分类
++ 
 
 ## 数据库相关（补充）
 

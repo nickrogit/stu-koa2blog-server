@@ -11,7 +11,7 @@ const articles = sequelize.define(
     date: Sequelize.BIGINT(100),
     tags: Sequelize.STRING(500),
     title: Sequelize.STRING(100),
-    desc: Sequelize.STRING(1000),
+    photo: Sequelize.STRING(1000),
     detail: Sequelize.STRING(10000),
     readNum: Sequelize.STRING(11),
     wordCount: Sequelize.STRING(11)

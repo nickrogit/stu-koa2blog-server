@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize')
 const articles = require('../models/articles')
+const dayjs = require('dayjs')
+
 /**
  * 查询文章列表
  *
@@ -22,7 +24,7 @@ const getArticles = async ctx => {
         'date',
         'tags',
         'title',
-        'desc',
+        'photo',
         'detail',
         'readNum',
         'wordCount',
@@ -118,14 +120,14 @@ const getArticlesDetail = async ctx => {
  * @param  {id} 文章Id
  * @return {JSON} Id, 阅读次数
  */
-const getArticlesUpdate = async ctx => {
+const postArticlesUpdate = async ctx => {
   const id = ctx.request.body.id
   if (id) {
     await articles.update({
       title: ctx.request.body.title || '',
-      date: ctx.request.body.date || '',
+      date: dayjs(ctx.request.body.date).valueOf() || '',
       tags: ctx.request.body.tags || '',
-      desc: ctx.request.body.desc || '',
+      photo: ctx.request.body.photo || '',
       detail: ctx.request.body.detail || ''
     }, {
       where: {
@@ -145,9 +147,9 @@ const getArticlesUpdate = async ctx => {
   } else {
     await articles.create({
       title: ctx.request.body.title || '',
-      date: ctx.request.body.date || '',
+      date: dayjs(ctx.request.body.date).valueOf() || '',
       tags: ctx.request.body.tags || '',
-      desc: ctx.request.body.desc || '',
+      photo: ctx.request.body.photo || '',
       detail: ctx.request.body.detail || ''
     }).then(data => {
       ctx.body = {
@@ -169,7 +171,7 @@ const getArticlesUpdate = async ctx => {
  * @param  {id} 文章Id
  * @return {JSONArray} 返回文章信息
  */
-const getArticlesDel = async ctx => {
+const postArticlesDel = async ctx => {
   const id = ctx.request.body.id
   await articles
     .destroy({
@@ -234,9 +236,9 @@ const readNumIncrease = async ctx => {
 }
 
 module.exports = {
-  getArticlesUpdate,
   getArticles,
   getArticlesDetail,
-  getArticlesDel,
+  postArticlesDel,
+  postArticlesUpdate,
   readNumIncrease
 }

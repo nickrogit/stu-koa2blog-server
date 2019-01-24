@@ -2,7 +2,8 @@
 
 注：此博客项目为koa2+mysql开源项目学习,笔记记录及补充完善。参考地址如下，欢迎大家学习，感谢作者的开源分享！
 
-> 原作者[博客线上地址](http://www.cykspace.com)
+> 参考
+
 > 博客地址：[cykspace](https://github.com/chenyinkai/cykspace)
 > 博客后台：[cykspace-node](https://github.com/chenyinkai/cykspace-node)
 

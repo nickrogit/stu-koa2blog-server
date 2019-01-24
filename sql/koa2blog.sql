@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80013
 File Encoding         : 65001
 
-Date: 2019-01-24 17:19:14
+Date: 2019-01-24 18:06:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -113,3 +113,17 @@ INSERT INTO `tags` VALUES ('21', 'module', '21');
 INSERT INTO `tags` VALUES ('22', 'es6', '22');
 INSERT INTO `tags` VALUES ('23', 'linux', '23');
 INSERT INTO `tags` VALUES ('24', 'vim', '24');
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `user` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `pwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('admin', '123456');

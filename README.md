@@ -8,7 +8,9 @@
 
 # 说明/补充/优化
 服务数据库端：https://github.com/nickrogit/stu-koa2blog-server (koa2 + mysql)
+
 后台管理端：https://github.com/nickrogit/stu-koa2blog-client (vue + iview)
+
 多平台C端：计划中，将采用多端开发框架，uniapp或taro
 ## 现功能
 + 登录
@@ -20,7 +22,7 @@
 + 用户token机制
 + 富文本
 + 文章分类
-+ 
++ 。。。
 
 ## 数据库相关（补充）
 

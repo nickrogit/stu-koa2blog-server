@@ -27,7 +27,7 @@
 + 文章分类
 + 等；
 
-## 数据库相关（补充）
+## 数据库相关
 
 + 数据库安装及关联：https://blog.csdn.net/nickroprak/article/details/85338871
 + 进入安装目录：cd C:\mysql\mysql-8.0.13\bin
@@ -64,7 +64,7 @@ npm install
 > start
 
 ```bash
-npm start # 打开 http://localhost:3000/articles
+npm run start # 打开 http://localhost:3000/articles
 ```
 
 注意：

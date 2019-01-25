@@ -21,14 +21,20 @@ const postFileUpload = async ctx => {
     ctx.body = {
       msg: '上传成功',
       code: 200,
+      uploaded: true,
+      url: `${config.baseURL}/upload_files/${fileType}/${result.fileName}`,
       data: {
-        absolutePath: `${config.baseURL}/upload_files/${fileType}/${result.fileName}`
+        absolutePath: `${config.baseURL}/upload_files/${fileType}/${result.fileName}`,
+        uploaded: true,
+        url: `${config.baseURL}/upload_files/${fileType}/${result.fileName}`
       }
     }
   } else {
     ctx.body = {
       msg: '上传失败',
-      code: 999999
+      code: 999999,
+      uploaded: false,
+      url: ''
     }
   }
 }

@@ -12,7 +12,7 @@
 
 服务数据库端：https://github.com/nickrogit/stu-koa2blog-server (koa2 + mysql)
 
-后台管理端：https://github.com/nickrogit/stu-koa2blog-client (vue + iview)
+后台管理端：https://github.com/nickrogit/stu-koa2blog-admin (vue + iview)
 
 多平台C端：计划中，将采用多端开发框架，uniapp或taro
 ## 现功能

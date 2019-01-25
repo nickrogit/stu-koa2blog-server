@@ -7,21 +7,21 @@
 > 笔记：[koa2-note](https://chenshenhai.github.io/koa2-note/)
 > 开源项目：[cykspace-node](https://github.com/chenyinkai/cykspace-node)
 
-# 说明/补充/优化
-服务端+后台端+C端
+## 服务端+后台端+C端
 
 服务数据库端：https://github.com/nickrogit/stu-koa2blog-server (koa2 + mysql)
 
 后台管理端：https://github.com/nickrogit/stu-koa2blog-admin (vue + iview)
 
-多平台C端：计划中，将采用多端开发框架，uniapp或taro
+多平台C端：https://github.com/nickrogit/stu-koa2blog-client (计划中，将采用多端开发框架uni-app或taro)
+
 ## 现功能
 + 登录
 + 文章列表
 + 文章增、删、改、查
-+ 图片上传
++ 图片/文件上传
 ## 后续补充功能
-+ 用户token机制
++ 用户token,服务器session机制
 + 富文本
 + 文章分类
 + 等；

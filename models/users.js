@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const sequelize = require('../lib/db-init')
-const user = sequelize.define(
-  'user',
+const users = sequelize.define(
+  'users',
   {
     user: Sequelize.STRING(255),
     pwd: Sequelize.STRING(255)
@@ -11,4 +11,4 @@ const user = sequelize.define(
   }
 )
 
-module.exports = user
+module.exports = users
